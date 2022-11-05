@@ -56,7 +56,7 @@ fun App(movies: List<Movie>) {
 private fun MovieItem(movie: Movie) {
     Column(
         modifier = Modifier
-            .width(800.dp)
+            .width(600.dp)
             .padding(16.dp)
     ) {
         Image(
@@ -64,8 +64,8 @@ private fun MovieItem(movie: Movie) {
             contentDescription = "capa do filme",
             modifier = Modifier
                 .fillMaxWidth()
-                .clip(RoundedCornerShape(4.dp)),
-            contentScale = ContentScale.Crop
+                .clip(RoundedCornerShape(20.dp)),
+            contentScale = ContentScale.Inside
         )
         Row(
             modifier = Modifier.fillMaxWidth()
@@ -82,12 +82,14 @@ private fun MovieItem(movie: Movie) {
                     Icons.Default.Star,
                     "ícone de estrela para nota",
                     tint = Color.Yellow,
-                    modifier = Modifier.height(16.dp)
+                    modifier = Modifier.height(16.dp),
                 )
                 Text(
                     movie.rating.toString(),
                     modifier = Modifier
-                        .padding(start = 2.dp),
+                        .padding(
+                            start = 250.dp,
+                        ),
                     color = Color(0xffeeeeee),
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Bold
@@ -95,6 +97,10 @@ private fun MovieItem(movie: Movie) {
             }
             Text(
                 movie.year.toString(),
+                modifier = Modifier
+                    .padding(
+                        start = 200.dp,
+                    ),
                 fontSize = 14.sp,
                 color = Color(0xffeeeeee),
             )
@@ -102,7 +108,7 @@ private fun MovieItem(movie: Movie) {
         Text(
             movie.title,
             modifier = Modifier.padding(
-                start = 16.dp,
+                start = 200.dp,
                 top = 8.dp,
                 end = 16.dp
             ),
